@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Data.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Data.txt" />
+  </ItemGroup>
+
 </Project>

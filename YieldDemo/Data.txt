@@ -1,5 +1,20 @@
-﻿This is data hiding. The data is hidden from the outside world and only the methods of the class can access it. This is also known as encapsulation.
-More on this here: https://www.geeksforgeeks.org/data-encapsulation-in-java/
-```
-let myObj = new MyClass();
-myObj.
+﻿one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+ten
+eleven
+twelve
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+eighteen
+nineteen
+twenty

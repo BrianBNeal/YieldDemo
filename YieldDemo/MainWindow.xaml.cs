@@ -12,14 +12,44 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
-    private async void ReadFile_Click(object sender, RoutedEventArgs e)
+    private async void ReadFileAsync_Click(object sender, RoutedEventArgs e)
     {
-        string path = Path.Combine("C:\\Users\\brian\\source\\repos\\YieldDemo\\YieldDemo\\Data.txt");
+        _listBox.Items.Clear();
+
+        string path = Path.Combine(Environment.CurrentDirectory, "../../../Data.txt");
 
         var lines = GetLinesAsync(path);
         await foreach (string line in lines)
         {
             _listBox.Items.Add(line);
+        }
+    }
+    private void ReadFile_Click(object sender, RoutedEventArgs e)
+    {
+        _listBox.Items.Clear(); //this doesn't fluidly clear the UI
+
+        string path = Path.Combine(Environment.CurrentDirectory, "../../../Data.txt");
+
+        var lines = GetLines(path);
+        foreach (string line in lines)
+        {
+            _listBox.Items.Add(line);
+        }
+    }
+
+    private void ClearList_Click(object sender, RoutedEventArgs e)
+    {
+        _listBox.Items.Clear();
+    }
+
+    private IEnumerable<string> GetLines(string path)
+    {
+        using StreamReader file = new(path);
+
+        while (file.ReadLine() is { } line)
+        {
+            Thread.Sleep(300);
+            yield return line;
         }
     }
 
@@ -33,4 +63,5 @@ public partial class MainWindow : Window
             yield return line;
         }
     }
+
 }
